@@ -35,12 +35,15 @@
           <td><button type="button" class="small button" ng-click="addGoal()">Add</button></td>
         </tr>
         <tr ng-repeat="goal in goals">
-          <td>{{goal.name}}</td>
-          <td>{{goal.description}}</td>
-          <td>{{goal.difficulty}}</td>
-          <td>{{goal.estimate}}</td>
+          <td class="done-{{goal.finished}}">{{goal.name}}</td>
+          <td class="done-{{goal.finished}}">{{goal.description}}</td>
+          <td class="done-{{goal.finished}}">{{goal.difficulty}}</td>
+          <td class="done-{{goal.finished}}">{{goal.estimate}}</td>
           <td>
-            <button type="button" class="small button" ng-click="finishGoal()">Finish</button>
+            <ul class="button-group round">
+              <li><a href="#" class="tiny button" ng-click="removeGoal()">Remove</a></li>
+              <li><a href="#" class="tiny button" ng-click="finishGoal()">Finish</a></li>
+            </ul>
           </td>
         </tr>
       </tbody>
