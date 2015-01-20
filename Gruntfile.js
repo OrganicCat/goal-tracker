@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<%= jshint.files %>'],
-      tasks: ['jshint']
+      tasks: ['jshint'],
     },
     coffee: {
       compile: {
