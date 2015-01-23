@@ -10,6 +10,7 @@ app.controller('goalController', ['$scope', '$firebase', function($scope, $fireb
   var syncObject = testbase.$asObject();
   ref.on("value", function(snapshot) {
     $scope.goals = snapshot.val().goals;
+    $scope.effortLevels = snapshot.val().effortLevels;
   }, function (errorObject) {
     console.log("What the shit Lana?: " + errorObject);
   });
@@ -29,8 +30,10 @@ app.controller('goalController', ['$scope', '$firebase', function($scope, $fireb
   };
 
   $scope.finishGoal = function() {
-    this.goal.finished = true;
+    console.log(!this.goal.finished);
+    this.goal.finished = !this.goal.finished;
     ref.update({goals:angular.fromJson(angular.toJson($scope.goals))});
   };
+
 
 }]);

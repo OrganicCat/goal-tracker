@@ -30,8 +30,12 @@
         <tr>
           <td><input type="text" ng-model="goalForm.name" placeholder="goal name"></td>
           <td><input type="text" ng-model="goalForm.description" placeholder="description of goal"></td>
-          <td><input type="text" ng-model="goalForm.difficulty" placeholder="difficulty"></td>
-          <td><input type="text" ng-model="goalForm.estimate" placeholder="time estimate"></td>
+          <td>
+            <select ng-model="goalForm.difficulty">
+              <option ng-repeat="effort in effortLevels" value="{{effort.name}}">{{effort.name}}</option>
+            </select>
+          </td>
+          <td><input type="text" ng-model="goalForm.estimate" placeholder="estimate"></td>
           <td><button type="button" class="small button" ng-click="addGoal()">Add</button></td>
         </tr>
         <tr ng-repeat="goal in goals">
@@ -51,22 +55,13 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-3 columns">Tag Goals Under Effort Levels</div>
-</div>
-<div class="row">
-  <div class="large-3 columns">Add Effort Levels</div>
-</div>
-<div class="row">
-  <div class="large-3 columns">Remove Effort Levels</div>
-</div>
-<div class="row">
   <div class="large-3 columns">List Items Nicely</div>
 </div>
 <div class="row">
   <div class="large-3 columns">Sort By Date/Alphabetical/Complete</div>
 </div>
 <div class="row">
-  <div class="large-3 columns">Store data in a remote DB</div>
+  <div class="large-3 columns">Color Code by Effort Level</div>
 </div>
 
 <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
