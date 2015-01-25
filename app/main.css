@@ -5,3 +5,15 @@
 .done-true {
   text-decoration: line-through;
 }
+
+.Amateur {
+  background-color: #4c4cff;
+}
+
+.Fighter {
+  background-color: #ffa500;
+}
+
+.Pirate {
+  background-color: #b20000;
+}

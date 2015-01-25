@@ -11,7 +11,7 @@
 <body ng-app="goal-tracker">
 
 <div class="row">
-  <div class="large-6 large-offset-2 columns"><h2>Lee's Pirate Goal Tracker</h2></div>
+  <div class="large-6 large-offset-2 columns"><h2>Pirate Goal Tracker</h2></div>
 </div>
 
 <div class="row" ng-controller="goalController">
@@ -27,7 +27,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr ng-class="goalForm.difficulty">
           <td><input type="text" ng-model="goalForm.name" placeholder="goal name"></td>
           <td><input type="text" ng-model="goalForm.description" placeholder="description of goal"></td>
           <td>
@@ -38,7 +38,7 @@
           <td><input type="text" ng-model="goalForm.estimate" placeholder="estimate"></td>
           <td><button type="button" class="small button" ng-click="addGoal()">Add</button></td>
         </tr>
-        <tr ng-repeat="goal in goals">
+        <tr ng-repeat="goal in goals" ng-class="goal.difficulty">
           <td class="done-{{goal.finished}}">{{goal.name}}</td>
           <td class="done-{{goal.finished}}">{{goal.description}}</td>
           <td class="done-{{goal.finished}}">{{goal.difficulty}}</td>
@@ -55,16 +55,13 @@
   </div>
 </div>
 <div class="row">
-  <div class="large-3 columns">List Items Nicely</div>
+  <div class="large-4 columns">Sort By Date/Alphabetical/Complete</div>
 </div>
 <div class="row">
-  <div class="large-3 columns">Sort By Date/Alphabetical/Complete</div>
+  <div class="large-4 columns">Color Code by Effort Level</div>
 </div>
 <div class="row">
-  <div class="large-3 columns">Color Code by Effort Level</div>
-</div>
-<div class="row">
-  <div class="large-3 columns">Color Code by Completion</div>
+  <div class="large-4 columns">Color Code by Completion</div>
 </div>
 
 <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
