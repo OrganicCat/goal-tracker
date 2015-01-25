@@ -7,13 +7,29 @@
 }
 
 .Amateur {
-  background-color: #4c4cff;
+  background-color: #4c4cff !important;
 }
 
 .Fighter {
-  background-color: #ffa500;
+  background-color: #ffa500 !important;
 }
 
 .Pirate {
-  background-color: #b20000;
+  background-color: #b20000 !important;
+}
+
+.goal-true {
+  background-color: #00b200 !important;
+}
+
+tr.Amateur td {
+  color: #fff;
+}
+
+tr.Fighter td {
+  color: #fff;
+}
+
+tr.Pirate td {
+  color: #fff;
 }
