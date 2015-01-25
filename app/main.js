@@ -6,8 +6,15 @@ app.controller('goalController', ['$scope', '$firebase', function($scope, $fireb
 
   var ref = new Firebase("https://goal-tracker.firebaseio.com/");
   var testbase = $firebase(ref);
-
   var syncObject = testbase.$asObject();
+
+  ref.authWithPassword({
+    email    : "", // fill in your email
+    password : "" // fill in your password
+  }, function(error, authData) { /* check your data here */ }, {
+    remember: "sessionOnly"
+  });
+
   ref.on("value", function(snapshot) {
     $scope.goals = snapshot.val().goals;
     $scope.effortLevels = snapshot.val().effortLevels;
