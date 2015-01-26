@@ -11,7 +11,7 @@
 <body ng-app="goal-tracker">
 
 <div class="row">
-  <div class="large-6 large-offset-2 columns"><h2>Pirate Goal Tracker</h2></div>
+  <div class="large-6 large-offset-4 columns"><h2>Pirate Goal Tracker</h2></div>
 </div>
 
 <div class="row" ng-controller="goalController">
@@ -21,7 +21,7 @@
         <tr>
           <th>Name</th>
           <th>Description</th>
-          <th>Difficulty</th>
+          <th class="difficultyColumn">Difficulty</th>
           <th>Time Estimate</th>
           <th></th>
         </tr>
@@ -38,12 +38,12 @@
           <td><input type="text" ng-model="goalForm.estimate" placeholder="estimate"></td>
           <td><button type="button" class="small button" ng-click="addGoal()">Add</button></td>
         </tr>
-        <tr ng-repeat="goal in goals" ng-class="goal.difficulty" class="goal-{{goal.finished}}">
+        <tr ng-repeat="goal in goals | orderBy:orderByField" ng-class="goal.difficulty" class="goal-{{goal.finished}}">
           <td class="done-{{goal.finished}}">{{goal.name}}</td>
           <td class="done-{{goal.finished}}">{{goal.description}}</td>
           <td class="done-{{goal.finished}}">{{goal.difficulty}}</td>
           <td class="done-{{goal.finished}}">{{goal.estimate}}</td>
-          <td>
+          <td class="actionButtons">
             <ul class="button-group round">
               <li><a href="#" class="tiny button" ng-click="removeGoal()">Remove</a></li>
               <li><a href="#" class="tiny button" ng-click="finishGoal()">Finish</a></li>
@@ -53,12 +53,6 @@
       </tbody>
     </table>
   </div>
-</div>
-<div class="row">
-  <div class="large-4 columns">Sort By Date/Alphabetical/Complete</div>
-</div>
-<div class="row">
-  <div class="large-4 columns">Add security for firebase</div>
 </div>
 
 <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>

@@ -3,6 +3,7 @@ app = angular.module('goal-tracker', ['firebase']);
 app.controller('goalController', ['$scope', '$firebase', function($scope, $firebase) {
   $scope.goals = [];
   $scope.goalForm = {};
+  $scope.orderByField = 'difficulty';
 
   var ref = new Firebase("https://goal-tracker.firebaseio.com/");
   var testbase = $firebase(ref);
@@ -37,7 +38,6 @@ app.controller('goalController', ['$scope', '$firebase', function($scope, $fireb
   };
 
   $scope.finishGoal = function() {
-    console.log(!this.goal.finished);
     this.goal.finished = !this.goal.finished;
     ref.update({goals:angular.fromJson(angular.toJson($scope.goals))});
   };

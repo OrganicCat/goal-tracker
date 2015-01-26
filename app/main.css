@@ -33,3 +33,20 @@ tr.Fighter td {
 tr.Pirate td {
   color: #fff;
 }
+
+.actionButtons {
+  width: 170px;
+}
+
+.difficultyColumn {
+  width: 115px;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tr td {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
